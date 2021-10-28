@@ -5,10 +5,18 @@ import {
     Text,
     BarsWrapper,
     Bar,
+    ControlPanelWrapper,
+    NavigationWrapper,
+    BaterryIcon,
     ButtonsWrapper,
     AddButton,
     BoxWithValue,
-    RemoveButton
+    RemoveButton,
+    BatteryTimeWrapper,
+    SwitchesWrapper,
+    SwitchWrapper,
+    SwitchText,
+    StyledSwitch
 } from './Widget.styles';
 
 export const Widget: React.FC = () => {
@@ -24,11 +32,36 @@ export const Widget: React.FC = () => {
                     <Bar />
                 </BarsWrapper>
             </BarAndTextWrapper>
-            <ButtonsWrapper>
-                <AddButton variant="contained">+</AddButton>
-                <BoxWithValue>0%</BoxWithValue>
-                <RemoveButton>-</RemoveButton>
-            </ButtonsWrapper>
+
+            <ControlPanelWrapper>
+                <ButtonsWrapper>
+                    <AddButton variant="contained">+</AddButton>
+                    <BoxWithValue>0%</BoxWithValue>
+                    <RemoveButton>-</RemoveButton>
+                </ButtonsWrapper>
+
+                <NavigationWrapper>
+                    <BatteryTimeWrapper>
+                        <BaterryIcon src={'./images/battery.png'}/>
+                        <span>Time left</span>
+                    </BatteryTimeWrapper>
+
+                    <SwitchesWrapper>
+                        <SwitchWrapper>
+                            <SwitchText>Night Vision</SwitchText>
+                            <StyledSwitch />
+                        </SwitchWrapper>
+                        <SwitchWrapper>
+                            <SwitchText>Dusk Till Down</SwitchText>
+                            <StyledSwitch />
+                        </SwitchWrapper>
+                        <SwitchWrapper>
+                            <SwitchText>Flashing</SwitchText>
+                            <StyledSwitch />
+                        </SwitchWrapper>
+                    </SwitchesWrapper>
+                </NavigationWrapper>
+            </ControlPanelWrapper>
         </Container>
     );
 };
