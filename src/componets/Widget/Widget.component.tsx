@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Bars } from '../Bars/Bars.component';
+import { Buttons } from '../Buttons/Buttons.component';
+import { BatteryTime } from '../BatteryTime/BatteryTime.component';
 import { 
     Container, 
     ControlPanelWrapper,
     NavigationWrapper,
-    BaterryIcon,
-    ButtonsWrapper,
-    AddButton,
-    BoxWithValue,
-    RemoveButton,
-    BatteryTimeWrapper,
     SwitchesWrapper,
     SwitchWrapper,
     SwitchText,
@@ -96,17 +92,13 @@ export const Widget: React.FC<WidgetProps> = ({ lightingMode }) => {
                 modeName={lightingMode.name}
             />
             <ControlPanelWrapper>
-                <ButtonsWrapper>
-                    <AddButton variant="contained" onClick={increaseLampIntensivity}>+</AddButton>
-                    <BoxWithValue>{lampIntensivity}%</BoxWithValue>
-                    <RemoveButton onClick={decreaseLampIntensivity}>-</RemoveButton>
-                </ButtonsWrapper>
-
+                <Buttons 
+                    increaseLampIntensivity={increaseLampIntensivity}
+                    decreaseLampIntensivity={decreaseLampIntensivity}
+                    lampIntensivity={lampIntensivity}
+                />
                 <NavigationWrapper>
-                    <BatteryTimeWrapper>
-                        <BaterryIcon src={'./images/battery.png'}/>
-                        <span>Time left</span>
-                    </BatteryTimeWrapper>
+                    <BatteryTime />
 
                     <SwitchesWrapper>
                         <SwitchWrapper>
