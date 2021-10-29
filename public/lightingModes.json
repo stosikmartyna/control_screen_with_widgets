@@ -1,0 +1,32 @@
+[
+    {
+      "lampIntensivity": 1,
+      "isNightVision": true,
+      "isDuskTillDown": false,
+      "isFlashing": false
+    },
+    {
+      "lampIntensivity": 100,
+      "isNightVision": true,
+      "isDuskTillDown": false,
+      "isFlashing": true
+    },
+    {
+      "lampIntensivity": 30,
+      "isNightVision": true,
+      "isDuskTillDown": true,
+      "isFlashing": false
+    },
+    {
+      "lampIntensivity": 10,
+      "isNightVision": true,
+      "isDuskTillDown": false,
+      "isFlashing": true
+    },
+    {
+      "lampIntensivity": 3,
+      "isNightVision": false,
+      "isDuskTillDown": false,
+      "isFlashing": false
+    }
+ ]

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { 
     Container, 
     BarAndTextWrapper,
@@ -25,20 +26,45 @@ export const Widget: React.FC = () => {
     const [isNightVision, setIsNightVision] = useState<boolean>(false);
     const [isDuskTillDown, setIsDuskTillDown] = useState<boolean>(false);
     const [isFlashing, setIsFlashing] = useState<boolean>(false);
-    
+    const [lightingModes, setLightingModes] = useState();
+
+    const getData = async() => {
+        try {
+            const {data} = await axios.get('lightingModes.json');
+            setLightingModes(data);
+            console.log(data)
+        } catch (error) {
+            console.warn(error);
+        }
+    };
+
+    const postData = async() => {
+        try {
+            const response = await axios.post('/lightmodes', { lampIntensivity, isNightVision, isDuskTillDown, isFlashing });
+            console.log(response);
+        } catch (error) {
+            console.warn(error);
+        }
+    };
+
     const increaseLampIntensivity = () => {
         if (lampIntensivity === 0) {
             setLampIntensivity(lampIntensivity + 1)
+            postData()
         } else if (lampIntensivity === 1) {
             setLampIntensivity(lampIntensivity + 2)
+            postData()
         } else if (lampIntensivity === 3) {
-            setLampIntensivity(lampIntensivity + 7) 
+            setLampIntensivity(lampIntensivity + 7)
+            postData()
         } else if (lampIntensivity === 10) {
-            setLampIntensivity(lampIntensivity + 20) 
+            setLampIntensivity(lampIntensivity + 20)
+            postData()
         } else if (lampIntensivity === 30) {
-            setLampIntensivity(lampIntensivity + 70) 
+            setLampIntensivity(lampIntensivity + 70)
+            postData()
         } 
-    }
+    };
 
     const decreaseLampIntensivity = () => {
         if (lampIntensivity === 100) {
@@ -52,7 +78,7 @@ export const Widget: React.FC = () => {
         } else if (lampIntensivity === 1) {
             setLampIntensivity(lampIntensivity - 1) 
         } 
-    }
+    };
 
     const renderBars = () => {
         if (lampIntensivity === 0) {
@@ -129,6 +155,11 @@ export const Widget: React.FC = () => {
     const switchIsFlashing = () => {
         setIsFlashing(!isFlashing);
     };
+
+
+    useEffect(() => {
+        getData();
+    }, []);
 
     return (
         <Container>
