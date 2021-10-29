@@ -4,6 +4,7 @@ import { Widget } from '../Widget/Widget.component';
 import { Container } from './MainView.styles';
 
 interface Data {
+    name: string;
     lampIntensivity: number;
     isNightVision: boolean;
     isDuskTillDown: boolean;

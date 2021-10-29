@@ -1,65 +1,76 @@
 [
     {
+      "name": "APH 08",
       "lampIntensivity": 1,
       "isNightVision": true,
       "isDuskTillDown": false,
       "isFlashing": false
     },
     {
+      "name": "THR 08",
       "lampIntensivity": 100,
       "isNightVision": true,
       "isDuskTillDown": false,
       "isFlashing": true
     },
     {
+      "name": "PAPI 08",
       "lampIntensivity": 30,
       "isNightVision": true,
       "isDuskTillDown": true,
       "isFlashing": false
     },
     {
+      "name": "RWE REH",
       "lampIntensivity": 10,
       "isNightVision": true,
       "isDuskTillDown": false,
       "isFlashing": true
     },
     {
+      "name": "SFL 26",
       "lampIntensivity": 3,
       "isNightVision": false,
       "isDuskTillDown": false,
       "isFlashing": false
     },
     {
+      "name": "TWY USR",
       "lampIntensivity": 1,
       "isNightVision": true,
       "isDuskTillDown": false,
       "isFlashing": false
     },
     {
+      "name": "APH 28",
       "lampIntensivity": 100,
       "isNightVision": true,
       "isDuskTillDown": false,
       "isFlashing": true
     },
     {
+      "name": "PAPI 53",
       "lampIntensivity": 30,
       "isNightVision": true,
       "isDuskTillDown": true,
       "isFlashing": false
     },
     {
+      "name": "RWE REH",
       "lampIntensivity": 10,
       "isNightVision": true,
       "isDuskTillDown": false,
       "isFlashing": true
     },
     {
+      "name": "TWY USR",
       "lampIntensivity": 3,
       "isNightVision": false,
       "isDuskTillDown": false,
       "isFlashing": false
     },
     {
+      "name": "SFL 26",
       "lampIntensivity": 1,
       "isNightVision": true,
       "isDuskTillDown": false,

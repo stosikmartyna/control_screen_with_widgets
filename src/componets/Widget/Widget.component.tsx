@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Bars } from '../Bars/Bars.component';
 import { 
     Container, 
-    BarAndTextWrapper,
-    Text,
-    BarsWrapper,
-    CompleteBar,
-    UncompleteBar,
     ControlPanelWrapper,
     NavigationWrapper,
     BaterryIcon,
@@ -22,6 +18,7 @@ import {
 } from './Widget.styles';
 
 interface SingleWidget {
+    name: string;
     lampIntensivity: number;
     isNightVision: boolean;
     isDuskTillDown: boolean;
@@ -80,70 +77,6 @@ export const Widget: React.FC<WidgetProps> = ({ lightingMode }) => {
         } 
     };
 
-    const renderBars = () => {
-        if (lampIntensivity === 0) {
-            return (
-                <>
-                    <UncompleteBar />
-                    <UncompleteBar />
-                    <UncompleteBar />
-                    <UncompleteBar />
-                    <UncompleteBar />
-                </>
-            )
-        } else if (lampIntensivity === 1) {
-            return (
-                <>
-                    <CompleteBar />
-                    <UncompleteBar />
-                    <UncompleteBar />
-                    <UncompleteBar />
-                    <UncompleteBar />
-                </>
-            )
-        } else if (lampIntensivity === 3) {
-            return (
-                <>
-                    <CompleteBar />
-                    <CompleteBar />
-                    <UncompleteBar />
-                    <UncompleteBar />
-                    <UncompleteBar />
-                </>
-            )
-        } else if (lampIntensivity === 10) {
-            return (
-                <>
-                    <CompleteBar />
-                    <CompleteBar />
-                    <CompleteBar />
-                    <UncompleteBar />
-                    <UncompleteBar />
-                </>
-            )
-        } else if (lampIntensivity === 30) {
-            return (
-                <>
-                    <CompleteBar />
-                    <CompleteBar />
-                    <CompleteBar />
-                    <CompleteBar />
-                    <UncompleteBar />
-                </>
-            )
-        } else if (lampIntensivity === 100) {
-            return (
-                <>
-                    <CompleteBar />
-                    <CompleteBar />
-                    <CompleteBar />
-                    <CompleteBar />
-                    <CompleteBar />
-                </>
-            )
-        }
-    };
-
     const switchIsNightVision = () => {
         setIsNightVision(!isNightVision);
     };
@@ -158,13 +91,10 @@ export const Widget: React.FC<WidgetProps> = ({ lightingMode }) => {
 
     return (
         <Container>
-            <BarAndTextWrapper>
-                <Text>THR 8</Text>
-                <BarsWrapper>
-                    {renderBars()}
-                </BarsWrapper>
-            </BarAndTextWrapper>
-
+            <Bars 
+                lampIntensivity={lampIntensivity} 
+                modeName={lightingMode.name}
+            />
             <ControlPanelWrapper>
                 <ButtonsWrapper>
                     <AddButton variant="contained" onClick={increaseLampIntensivity}>+</AddButton>
