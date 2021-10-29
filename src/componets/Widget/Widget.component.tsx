@@ -22,7 +22,10 @@ import {
 
 export const Widget: React.FC = () => {
     const [lampIntensivity, setLampIntensivity] = useState<number>(0);
-
+    const [isNightVision, setIsNightVision] = useState<boolean>(false);
+    const [isDuskTillDown, setIsDuskTillDown] = useState<boolean>(false);
+    const [isFlashing, setIsFlashing] = useState<boolean>(false);
+    
     const increaseLampIntensivity = () => {
         if (lampIntensivity === 0) {
             setLampIntensivity(lampIntensivity + 1)
@@ -115,6 +118,18 @@ export const Widget: React.FC = () => {
         }
     };
 
+    const switchIsNightVision = () => {
+        setIsNightVision(!isNightVision);
+    };
+
+    const switchIsDuskTillDown = () => {
+        setIsDuskTillDown(!isDuskTillDown);
+    };
+
+    const switchIsFlashing = () => {
+        setIsFlashing(!isFlashing);
+    };
+
     return (
         <Container>
             <BarAndTextWrapper>
@@ -140,15 +155,15 @@ export const Widget: React.FC = () => {
                     <SwitchesWrapper>
                         <SwitchWrapper>
                             <SwitchText>Night Vision</SwitchText>
-                            <StyledSwitch />
+                            <StyledSwitch onChange={switchIsNightVision} />
                         </SwitchWrapper>
                         <SwitchWrapper>
                             <SwitchText>Dusk Till Down</SwitchText>
-                            <StyledSwitch />
+                            <StyledSwitch onChange={switchIsDuskTillDown} />
                         </SwitchWrapper>
                         <SwitchWrapper>
                             <SwitchText>Flashing</SwitchText>
-                            <StyledSwitch />
+                            <StyledSwitch onChange={switchIsFlashing} />
                         </SwitchWrapper>
                     </SwitchesWrapper>
                 </NavigationWrapper>
