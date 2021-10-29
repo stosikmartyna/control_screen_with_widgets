@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { 
     Container, 
@@ -21,22 +21,22 @@ import {
     StyledSwitch
 } from './Widget.styles';
 
-export const Widget: React.FC = () => {
-    const [lampIntensivity, setLampIntensivity] = useState<number>(0);
-    const [isNightVision, setIsNightVision] = useState<boolean>(false);
-    const [isDuskTillDown, setIsDuskTillDown] = useState<boolean>(false);
-    const [isFlashing, setIsFlashing] = useState<boolean>(false);
-    const [lightingModes, setLightingModes] = useState();
+interface SingleWidget {
+    lampIntensivity: number;
+    isNightVision: boolean;
+    isDuskTillDown: boolean;
+    isFlashing: boolean;
+}
 
-    const getData = async() => {
-        try {
-            const {data} = await axios.get('lightingModes.json');
-            setLightingModes(data);
-            console.log(data)
-        } catch (error) {
-            console.warn(error);
-        }
-    };
+interface WidgetProps {
+    lightingMode: SingleWidget;
+}
+
+export const Widget: React.FC<WidgetProps> = ({ lightingMode }) => {
+    const [lampIntensivity, setLampIntensivity] = useState<number>(lightingMode.lampIntensivity);
+    const [isNightVision, setIsNightVision] = useState<boolean>(lightingMode.isNightVision);
+    const [isDuskTillDown, setIsDuskTillDown] = useState<boolean>(lightingMode.isDuskTillDown);
+    const [isFlashing, setIsFlashing] = useState<boolean>(lightingMode.isFlashing);
 
     const postData = async() => {
         try {
@@ -155,11 +155,6 @@ export const Widget: React.FC = () => {
     const switchIsFlashing = () => {
         setIsFlashing(!isFlashing);
     };
-
-
-    useEffect(() => {
-        getData();
-    }, []);
 
     return (
         <Container>

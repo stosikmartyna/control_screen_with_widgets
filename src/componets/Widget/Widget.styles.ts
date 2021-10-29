@@ -4,10 +4,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
     background-color: #102949;
     border-radius: 4px;
-    height: 200px;
-    margin: 0 auto;
     padding: 10px 10px;
-    width: 80%;
 
     @media(max-width: 500px) {
         min-width: 300px;
