@@ -181,15 +181,15 @@ export const Widget: React.FC<WidgetProps> = ({ lightingMode }) => {
                     <SwitchesWrapper>
                         <SwitchWrapper>
                             <SwitchText>Night Vision</SwitchText>
-                            <StyledSwitch onChange={switchIsNightVision} />
+                            <StyledSwitch checked={isNightVision} onChange={switchIsNightVision} />
                         </SwitchWrapper>
                         <SwitchWrapper>
                             <SwitchText>Dusk Till Down</SwitchText>
-                            <StyledSwitch onChange={switchIsDuskTillDown} />
+                            <StyledSwitch checked={isDuskTillDown} onChange={switchIsDuskTillDown} />
                         </SwitchWrapper>
                         <SwitchWrapper>
                             <SwitchText>Flashing</SwitchText>
-                            <StyledSwitch onChange={switchIsFlashing} />
+                            <StyledSwitch checked={isFlashing} onChange={switchIsFlashing} />
                         </SwitchWrapper>
                     </SwitchesWrapper>
                 </NavigationWrapper>
