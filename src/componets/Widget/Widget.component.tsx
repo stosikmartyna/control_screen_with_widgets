@@ -3,15 +3,8 @@ import axios from 'axios';
 import { Bars } from '../Bars/Bars.component';
 import { Buttons } from '../Buttons/Buttons.component';
 import { BatteryTime } from '../BatteryTime/BatteryTime.component';
-import { 
-    Container, 
-    ControlPanelWrapper,
-    NavigationWrapper,
-    SwitchesWrapper,
-    SwitchWrapper,
-    SwitchText,
-    StyledSwitch
-} from './Widget.styles';
+import { Switches } from '../Switches/Switches.component';
+import { Container, ControlPanelWrapper, NavigationWrapper } from './Widget.styles';
 
 interface SingleWidget {
     name: string;
@@ -99,21 +92,14 @@ export const Widget: React.FC<WidgetProps> = ({ lightingMode }) => {
                 />
                 <NavigationWrapper>
                     <BatteryTime />
-
-                    <SwitchesWrapper>
-                        <SwitchWrapper>
-                            <SwitchText>Night Vision</SwitchText>
-                            <StyledSwitch checked={isNightVision} onChange={switchIsNightVision} />
-                        </SwitchWrapper>
-                        <SwitchWrapper>
-                            <SwitchText>Dusk Till Down</SwitchText>
-                            <StyledSwitch checked={isDuskTillDown} onChange={switchIsDuskTillDown} />
-                        </SwitchWrapper>
-                        <SwitchWrapper>
-                            <SwitchText>Flashing</SwitchText>
-                            <StyledSwitch checked={isFlashing} onChange={switchIsFlashing} />
-                        </SwitchWrapper>
-                    </SwitchesWrapper>
+                    <Switches
+                        isNightVision={isNightVision}
+                        switchIsNightVision={switchIsNightVision}
+                        isDuskTillDown={isDuskTillDown}
+                        switchIsDuskTillDown={switchIsDuskTillDown}
+                        isFlashing={isFlashing}
+                        switchIsFlashing={switchIsFlashing}
+                    />
                 </NavigationWrapper>
             </ControlPanelWrapper>
         </Container>
