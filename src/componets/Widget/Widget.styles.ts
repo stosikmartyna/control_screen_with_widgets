@@ -8,6 +8,10 @@ export const Container = styled.div`
     margin: 0 auto;
     padding: 10px 10px;
     width: 80%;
+
+    @media(max-width: 500px) {
+        min-width: 300px;
+    }
 `;
 
 export const BarAndTextWrapper = styled.div`
@@ -29,8 +33,16 @@ export const BarsWrapper = styled.div`
     width: 100%;
 `;
 
-export const Bar = styled.div`
+export const CompleteBar = styled.div`
     background-color: #094E95;
+    border-radius: 4px;
+    height: 6px;
+    margin-right: 5px;
+    width: 35px;
+`;
+
+export const UncompleteBar = styled.div`
+    background-color: #B0B7C4;
     border-radius: 4px;
     height: 6px;
     margin-right: 5px;
@@ -120,10 +132,8 @@ export const SwitchWrapper = styled.div`
     justify-content: space-between;
 `;
 
-export const SwitchText = styled.span`
+export const SwitchText = styled.label`
     color: white;
 `;
 
-export const StyledSwitch = styled(Switch)`
-
-`;
+export const StyledSwitch = styled(Switch)``;
