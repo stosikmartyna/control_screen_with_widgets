@@ -69,7 +69,7 @@ export const LightWidget: React.FC<LightWidgetProps> = ({ initialValues }) => {
                     lampIntensivity={values.lampIntensivity}
                 />
                 <NavigationWrapper>
-                    <BatteryTime />
+                    <BatteryTime value={values.batteryTimeLeft} />
                     <LightModeSwitches
                         lighting={values}
                         switchLightMode={switchLightMode}

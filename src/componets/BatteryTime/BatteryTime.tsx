@@ -5,11 +5,20 @@ import {
     BatteryText
 } from './BatteryTime.styles';
 
-export const BatteryTime: React.FC = () => {
+interface BatteryTimeProps {
+    value: number
+}
+
+export const BatteryTime: React.FC<BatteryTimeProps> = ({ value }) => {
+    const hours = Math.floor(value / 60);
+    const minutes = value % 60;
+
     return (
         <BatteryTimeWrapper>
             <BaterryIcon src={'./images/battery.png'}/>
-            <BatteryText>Time left</BatteryText>
+            <BatteryText>
+                Time left: {hours}h {minutes}min
+            </BatteryText>
         </BatteryTimeWrapper>
     );
 };

@@ -7,6 +7,7 @@ export const mapLightSettingsDTO = (data: LightSettingsDTO[]): LightSettings[] =
         lampIntensivity: setting.lamp_intensivity,
         isNightVision: setting.is_night_vision,
         isDuskTillDown: setting.is_dusk_till_down,
-        isFlashing: setting.is_flashing
+        isFlashing: setting.is_flashing,
+        batteryTimeLeft: setting.battery_time_left,
     }))
 }

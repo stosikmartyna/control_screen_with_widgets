@@ -6,4 +6,5 @@ export interface LightSettings {
     isNightVision: boolean;
     isDuskTillDown: boolean;
     isFlashing: boolean;
+    batteryTimeLeft: number;
 }
