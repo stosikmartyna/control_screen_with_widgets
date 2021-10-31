@@ -4,20 +4,22 @@ import {
     SwitchWrapper,
     SwitchText,
     StyledSwitch
-} from './Switches.styles';
+} from './LightModeSwitches.styles';
 
 interface SwitchesProps {
-    isNightVision: boolean;
-    isDuskTillDown: boolean;
-    isFlashing: boolean;
+    lighting: {
+        lampIntensivity: number;
+        isNightVision: boolean;
+        isDuskTillDown: boolean;
+        isFlashing: boolean;
+    }
     switchIsNightVision: () => void;
     switchIsDuskTillDown: () => void;
     switchIsFlashing: () => void;
 }
 
-export const Switches: React.FC<SwitchesProps> = (
-    { isNightVision, switchIsNightVision, isDuskTillDown, switchIsDuskTillDown, isFlashing, switchIsFlashing }
-) => {    
+export const Switches: React.FC<SwitchesProps> = ({ lighting, switchIsNightVision, switchIsDuskTillDown, switchIsFlashing }) => {    
+    const {isNightVision, isDuskTillDown, isFlashing } = lighting;
     return (
         <SwitchesWrapper>
             <SwitchWrapper>

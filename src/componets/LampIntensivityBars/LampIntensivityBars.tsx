@@ -5,15 +5,14 @@ import {
     BarsWrapper,
     UncompleteBar,
     CompleteBar
-} from './Bars.styles';
+} from './LampIntensivityBars.styles';
 
-interface BarsProps {
+interface LampIntensivityBarsProps {
     lampIntensivity: number;
     modeName: string;
 }
 
-export const Bars: React.FC<BarsProps> = ({ lampIntensivity, modeName }) => {
-    
+export const LampIntensivityBars: React.FC<LampIntensivityBarsProps> = ({ lampIntensivity, modeName }) => {
     const renderBars = () => {
         if (lampIntensivity === 0) {
             return (

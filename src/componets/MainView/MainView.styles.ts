@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../../constants/colors';
+import { colors } from '../../utils/constants/colors';
 
 export const Container = styled.div`
     align-items: center;

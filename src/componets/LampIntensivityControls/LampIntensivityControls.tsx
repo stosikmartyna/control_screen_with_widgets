@@ -4,19 +4,20 @@ import {
     AddButton,
     BoxWithValue,
     RemoveButton
-} from './Buttons.styles';
+} from './LampIntensivityControls.styles';
 
-interface ButtonsProps {
+interface LampIntensivityControlsProps {
     increaseLampIntensivity: () => void;
     decreaseLampIntensivity: () => void;
     lampIntensivity: number;
 }
 
-export const Buttons: React.FC<ButtonsProps> = ({ increaseLampIntensivity, decreaseLampIntensivity, lampIntensivity }) => {
+export const LampIntensivityControls: React.FC<LampIntensivityControlsProps> = ({ increaseLampIntensivity, decreaseLampIntensivity, lampIntensivity }) => {
     return (
         <ButtonsWrapper>
-            <AddButton variant="contained" onClick={increaseLampIntensivity}>+</AddButton>
+            <AddButton variant={'contained'} onClick={increaseLampIntensivity}>+</AddButton>
             <BoxWithValue>{lampIntensivity}%</BoxWithValue>
+            {/* minus jest krzywo w buttonie */}
             <RemoveButton onClick={decreaseLampIntensivity}>-</RemoveButton>
         </ButtonsWrapper>
     );

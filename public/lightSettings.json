@@ -1,0 +1,79 @@
+[
+    {
+      "name": "APH_08",
+      "lamp_intensivity": 1,
+      "is_night_vision": true,
+      "is_dusk_till_down": false,
+      "is_flashing": false
+    },
+    {
+      "name": "THR_08",
+      "lamp_intensivity": 100,
+      "is_night_vision": true,
+      "is_dusk_till_down": false,
+      "is_flashing": true
+    },
+    {
+      "name": "PAPI_08",
+      "lamp_intensivity": 30,
+      "is_night_vision": true,
+      "is_dusk_till_down": true,
+      "is_flashing": false
+    },
+    {
+      "name": "RWE_REH",
+      "lamp_intensivity": 10,
+      "is_night_vision": true,
+      "is_dusk_till_down": false,
+      "is_flashing": true
+    },
+    {
+      "name": "SFL_26",
+      "lamp_intensivity": 3,
+      "is_night_vision": false,
+      "is_dusk_till_down": false,
+      "is_flashing": false
+    },
+    {
+      "name": "TWY_USR",
+      "lamp_intensivity": 1,
+      "is_night_vision": true,
+      "is_dusk_till_down": false,
+      "is_flashing": false
+    },
+    {
+      "name": "APH_28",
+      "lamp_intensivity": 100,
+      "is_night_vision": true,
+      "is_dusk_till_down": false,
+      "is_flashing": true
+    },
+    {
+      "name": "PAPI_53",
+      "lamp_intensivity": 30,
+      "is_night_vision": true,
+      "is_dusk_till_down": true,
+      "is_flashing": false
+    },
+    {
+      "name": "RWE_REG",
+      "lamp_intensivity": 10,
+      "is_night_vision": true,
+      "is_dusk_till_down": false,
+      "is_flashing": true
+    },
+    {
+      "name": "TWZ_USR",
+      "lamp_intensivity": 3,
+      "is_night_vision": false,
+      "is_dusk_till_down": false,
+      "is_flashing": false
+    },
+    {
+      "name": "SFL_28",
+      "lamp_intensivity": 1,
+      "is_night_vision": true,
+      "is_dusk_till_down": false,
+      "is_flashing": false
+    }
+ ]

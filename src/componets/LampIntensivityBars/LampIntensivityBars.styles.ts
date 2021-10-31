@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../../constants/colors';
+import { colors } from '../../utils/constants/colors';
 
 export const BarAndTextWrapper = styled.div`
     align-items: center;
@@ -28,10 +28,6 @@ export const CompleteBar = styled.div`
     width: 35px;
 `;
 
-export const UncompleteBar = styled.div`
+export const UncompleteBar = styled(CompleteBar)`
     background-color: ${colors.uncompleteBarBlue};
-    border-radius: 4px;
-    height: 6px;
-    margin-right: 5px;
-    width: 35px;
 `;
