@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Switch } from '@mui/material';
+import { colors } from '../../constants/colors';
 
 export const SwitchesWrapper = styled.div`
     display: flex;
@@ -13,7 +14,7 @@ export const SwitchWrapper = styled.div`
 `;
 
 export const SwitchText = styled.label`
-    color: white;
+    color: ${colors.white};
 `;
 
 export const StyledSwitch = styled(Switch)``;

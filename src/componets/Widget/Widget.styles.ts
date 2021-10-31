@@ -1,13 +1,11 @@
 import styled from 'styled-components';
+import { colors } from '../../constants/colors';
 
 export const Container = styled.div`
-    background-color: #102949;
+    background-color: ${colors.widgetBackgroundBlue};
     border-radius: 4px;
     padding: 10px 10px;
-
-    @media(max-width: 500px) {
-        min-width: 300px;
-    }
+    min-width: 250px;
 `;
 
 export const ControlPanelWrapper = styled.div`

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Button } from '@mui/material';
+import { colors } from '../../constants/colors';
 
 export const ButtonsWrapper = styled.div`
     display: grid;
@@ -20,30 +21,27 @@ export const AddButton = styled(Button)`
 `;
 
 export const RemoveButton = styled(AddButton)`
-    background-color: #CACFD9;
-    border: 1px solid #CACFD9;
-
     && {
-        background-color: #CACFD9;
-        border: 1px solid #CACFD9;
-        color: white;
+        background-color: ${colors.lightBlue};
+        border: 1px solid ${colors.lightBlue};
+        color: ${colors.white};
         font-size: 3rem;
 
         &:hover {
-            background-color: #b0b7c4;
-            border: 1px solid #b0b7c4;
+            background-color: ${colors.lightBlueHover};
+            border: 1px solid ${colors.lightBlueHover};
         }
     }
 `;
 
 export const BoxWithValue = styled.div`
     align-items: center;
-    background-color: #102949;
-    border: 1px solid white;
+    background-color: ${colors.widgetBackgroundBlue};
+    border: 1px solid ${colors.white};
     border-radius: 4px;
-    color: white;
+    color: ${colors.white};
     display: flex;
-    font-size: 2rem;
+    font-size: 1.5rem;
     height: 50px;
     justify-content: center;
 `;

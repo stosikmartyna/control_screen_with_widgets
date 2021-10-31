@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import { colors } from '../../constants/colors';
 
 export const BatteryTimeWrapper = styled.div`
     align-items: center;
-    background-color: #1B3C67;
+    background-color: ${colors.batteryTimeBlue};
     border-radius: 4px;
-    color: white;
+    color: ${colors.white};
     display: flex;
     margin: 0 10px 10px 0;
     padding: 10px 5px;
@@ -16,5 +17,5 @@ export const BaterryIcon = styled.img`
 `;
 
 export const BatteryText = styled.span`
-    color: white;
+    color: ${colors.white};
 `;
