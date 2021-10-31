@@ -16,6 +16,8 @@ export const LightWidget: React.FC<LightWidgetProps> = ({ initialValues }) => {
 
     const isInitialMount = useRef(true);
 
+    const lightName = initialValues.name.replace('_', ' ');
+
     const updateLightSettings = useCallback(async() => {
         try {
             await putLightSettings(initialValues.name, values);
@@ -79,7 +81,7 @@ export const LightWidget: React.FC<LightWidgetProps> = ({ initialValues }) => {
         <Container>
             <LampIntensivityBars 
                 lampIntensivity={values.lampIntensivity} 
-                modeName={initialValues.name}
+                modeName={lightName}
             />
             <ControlPanelWrapper>
                 <LampIntensivityControls 
