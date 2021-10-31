@@ -7,18 +7,25 @@ import {
 } from './LampIntensivityControls.styles';
 
 interface LampIntensivityControlsProps {
-    increaseLampIntensivity: () => void;
-    decreaseLampIntensivity: () => void;
+    changeIntensivity: (mode: 'increase' | 'decrease') => void;
     lampIntensivity: number;
 }
 
-export const LampIntensivityControls: React.FC<LampIntensivityControlsProps> = ({ increaseLampIntensivity, decreaseLampIntensivity, lampIntensivity }) => {
+export const LampIntensivityControls: React.FC<LampIntensivityControlsProps> = ({ changeIntensivity, lampIntensivity }) => {
+    const increase = () => {
+        changeIntensivity('increase')
+    }
+
+    const decrease = () => {
+        changeIntensivity('decrease')
+    }
+
     return (
         <ButtonsWrapper>
-            <AddButton variant={'contained'} onClick={increaseLampIntensivity}>+</AddButton>
+            <AddButton variant={'contained'} onClick={increase}>+</AddButton>
             <BoxWithValue>{lampIntensivity}%</BoxWithValue>
             {/* minus jest krzywo w buttonie */}
-            <RemoveButton onClick={decreaseLampIntensivity}>-</RemoveButton>
+            <RemoveButton onClick={decrease}>-</RemoveButton>
         </ButtonsWrapper>
     );
 };

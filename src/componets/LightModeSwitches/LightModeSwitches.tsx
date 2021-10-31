@@ -13,26 +13,24 @@ interface LightModeSwitchesProps {
         isDuskTillDown: boolean;
         isFlashing: boolean;
     }
-    switchIsNightVision: () => void;
-    switchIsDuskTillDown: () => void;
-    switchIsFlashing: () => void;
+    switchLightMode: (mode: 'isNightVision' | 'isDuskTillDown' | 'isFlashing') => void;
 }
 
-export const LightModeSwitches: React.FC<LightModeSwitchesProps> = ({ lighting, switchIsNightVision, switchIsDuskTillDown, switchIsFlashing }) => {    
+export const LightModeSwitches: React.FC<LightModeSwitchesProps> = ({ lighting, switchLightMode }) => {    
     const {isNightVision, isDuskTillDown, isFlashing } = lighting;
     return (
         <SwitchesWrapper>
             <SwitchWrapper>
                 <SwitchText>Night Vision</SwitchText>
-                <StyledSwitch checked={isNightVision} onChange={switchIsNightVision} />
+                <StyledSwitch checked={isNightVision} onChange={() => switchLightMode('isNightVision')} />
             </SwitchWrapper>
             <SwitchWrapper>
                 <SwitchText>Dusk Till Down</SwitchText>
-                <StyledSwitch checked={isDuskTillDown} onChange={switchIsDuskTillDown} />
+                <StyledSwitch checked={isDuskTillDown} onChange={() => switchLightMode('isDuskTillDown')} />
             </SwitchWrapper>
             <SwitchWrapper>
                 <SwitchText>Flashing</SwitchText>
-                <StyledSwitch checked={isFlashing} onChange={switchIsFlashing} />
+                <StyledSwitch checked={isFlashing} onChange={() => switchLightMode('isFlashing')} />
             </SwitchWrapper>
         </SwitchesWrapper>
     );

@@ -4,7 +4,7 @@ import { LampIntensivityControls } from '../LampIntensivityControls/LampIntensiv
 import { BatteryTime } from '../BatteryTime/BatteryTime';
 import { LightModeSwitches } from '../LightModeSwitches/LightModeSwitches';
 import { Container, ControlPanelWrapper, NavigationWrapper } from './LightWidget.styles';
-import { LightSettings } from '../../utils/types';
+import { LampIntensivity, LightSettings } from '../../utils/types';
 import { putLightSettings } from '../../api/api';
 
 interface LightWidgetProps {
@@ -26,48 +26,28 @@ export const LightWidget: React.FC<LightWidgetProps> = ({ initialValues }) => {
         }
     }, [initialValues.name, values]); 
 
+    const handleLampIntensivity = (mode: 'increase' | 'decrease') => {
+        const lampIntensivities: LampIntensivity[] = [0, 1, 3, 10, 30, 100];
+        const currentIntensivityIndex = lampIntensivities.indexOf(values.lampIntensivity);
 
-    const increaseLampIntensivity = () => {
-        const { lampIntensivity } = values;
-        if (lampIntensivity === 0) {
-            setValues({...values, lampIntensivity: 1})
-        } else if (lampIntensivity === 1) {
-            setValues({...values, lampIntensivity: 3})
-        } else if (lampIntensivity === 3) {
-            setValues({...values, lampIntensivity: 10})
-        } else if (lampIntensivity === 10) {
-            setValues({...values, lampIntensivity: 30})
-        } else if (lampIntensivity === 30) {
-            setValues({...values, lampIntensivity: 100})
-        } 
-    };
+        if (mode === 'increase' && values.lampIntensivity !== 100) {
+            const updatedValue = lampIntensivities[currentIntensivityIndex + 1];
+            setValues({...values, lampIntensivity: updatedValue})
+        } else if (mode === 'decrease' && values.lampIntensivity !== 0) {
+            const updatedValue = lampIntensivities[currentIntensivityIndex - 1];
+            setValues({...values, lampIntensivity: updatedValue})
+        }
+    }
 
-    const decreaseLampIntensivity = () => {
-        const { lampIntensivity } = values;
-        if (lampIntensivity === 100) {
-            setValues({...values, lampIntensivity: 30})
-        } else if (lampIntensivity === 30) {
-            setValues({...values, lampIntensivity: 10})
-        } else if (lampIntensivity === 10) {
-            setValues({...values, lampIntensivity: 3}) 
-        } else if (lampIntensivity === 3) {
-            setValues({...values, lampIntensivity: 1}) 
-        } else if (lampIntensivity === 1) {
-            setValues({...values, lampIntensivity: 0}) 
-        } 
-    };
-
-    const switchIsNightVision = () => {
-        setValues({...values, isNightVision: !values.isNightVision});
-    };
-    
-    const switchIsDuskTillDown = () => {
-        setValues({...values, isDuskTillDown: !values.isDuskTillDown});
-    };
-    
-    const switchIsFlashing = () => {
-        setValues({...values, isFlashing: !values.isFlashing});
-    };
+    const switchLightMode = (mode: 'isNightVision' | 'isDuskTillDown' | 'isFlashing') => {
+        if (mode === 'isNightVision') {
+            setValues({...values, isNightVision: !values.isNightVision});
+        } else if (mode === 'isDuskTillDown') {
+            setValues({...values, isDuskTillDown: !values.isDuskTillDown});
+        } else if (mode === 'isFlashing') {
+            setValues({...values, isFlashing: !values.isFlashing});
+        }
+    }
 
     useEffect(() => {
         if (isInitialMount.current) {
@@ -85,17 +65,14 @@ export const LightWidget: React.FC<LightWidgetProps> = ({ initialValues }) => {
             />
             <ControlPanelWrapper>
                 <LampIntensivityControls 
-                    increaseLampIntensivity={increaseLampIntensivity}
-                    decreaseLampIntensivity={decreaseLampIntensivity}
+                    changeIntensivity={handleLampIntensivity}
                     lampIntensivity={values.lampIntensivity}
                 />
                 <NavigationWrapper>
                     <BatteryTime />
                     <LightModeSwitches
                         lighting={values}
-                        switchIsNightVision={switchIsNightVision}
-                        switchIsDuskTillDown={switchIsDuskTillDown}
-                        switchIsFlashing={switchIsFlashing}
+                        switchLightMode={switchLightMode}
                     />
                 </NavigationWrapper>
             </ControlPanelWrapper>
