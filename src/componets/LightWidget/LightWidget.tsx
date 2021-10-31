@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { LampIntensivityBars } from '../LampIntensivityBars/LampIntensivityBars';
 import { LampIntensivityControls } from '../LampIntensivityControls/LampIntensivityControls';
 import { BatteryTime } from '../BatteryTime/BatteryTime';
-import { Switches } from '../LightModeSwitches/LightModeSwitches';
+import { LightModeSwitches } from '../LightModeSwitches/LightModeSwitches';
 import { Container, ControlPanelWrapper, NavigationWrapper } from './LightWidget.styles';
 import { LightSettings } from '../../utils/types';
 import { putLightSettings } from '../../api/api';
@@ -30,30 +30,30 @@ export const LightWidget: React.FC<LightWidgetProps> = ({ initialValues }) => {
     const increaseLampIntensivity = () => {
         const { lampIntensivity } = values;
         if (lampIntensivity === 0) {
-            setValues({...values, lampIntensivity: lampIntensivity + 1})
+            setValues({...values, lampIntensivity: 1})
         } else if (lampIntensivity === 1) {
-            setValues({...values, lampIntensivity: lampIntensivity + 2})
+            setValues({...values, lampIntensivity: 3})
         } else if (lampIntensivity === 3) {
-            setValues({...values, lampIntensivity: lampIntensivity + 7})
+            setValues({...values, lampIntensivity: 10})
         } else if (lampIntensivity === 10) {
-            setValues({...values, lampIntensivity: lampIntensivity + 20})
+            setValues({...values, lampIntensivity: 30})
         } else if (lampIntensivity === 30) {
-            setValues({...values, lampIntensivity: lampIntensivity + 70})
+            setValues({...values, lampIntensivity: 100})
         } 
     };
 
     const decreaseLampIntensivity = () => {
         const { lampIntensivity } = values;
         if (lampIntensivity === 100) {
-            setValues({...values, lampIntensivity: lampIntensivity - 70})
+            setValues({...values, lampIntensivity: 30})
         } else if (lampIntensivity === 30) {
-            setValues({...values, lampIntensivity: lampIntensivity - 20})
+            setValues({...values, lampIntensivity: 10})
         } else if (lampIntensivity === 10) {
-            setValues({...values, lampIntensivity: lampIntensivity - 7}) 
+            setValues({...values, lampIntensivity: 3}) 
         } else if (lampIntensivity === 3) {
-            setValues({...values, lampIntensivity: lampIntensivity - 2}) 
+            setValues({...values, lampIntensivity: 1}) 
         } else if (lampIntensivity === 1) {
-            setValues({...values, lampIntensivity: lampIntensivity - 1}) 
+            setValues({...values, lampIntensivity: 0}) 
         } 
     };
 
@@ -91,7 +91,7 @@ export const LightWidget: React.FC<LightWidgetProps> = ({ initialValues }) => {
                 />
                 <NavigationWrapper>
                     <BatteryTime />
-                    <Switches
+                    <LightModeSwitches
                         lighting={values}
                         switchIsNightVision={switchIsNightVision}
                         switchIsDuskTillDown={switchIsDuskTillDown}

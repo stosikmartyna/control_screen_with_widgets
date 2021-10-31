@@ -6,7 +6,7 @@ import {
     StyledSwitch
 } from './LightModeSwitches.styles';
 
-interface SwitchesProps {
+interface LightModeSwitchesProps {
     lighting: {
         lampIntensivity: number;
         isNightVision: boolean;
@@ -18,7 +18,7 @@ interface SwitchesProps {
     switchIsFlashing: () => void;
 }
 
-export const Switches: React.FC<SwitchesProps> = ({ lighting, switchIsNightVision, switchIsDuskTillDown, switchIsFlashing }) => {    
+export const LightModeSwitches: React.FC<LightModeSwitchesProps> = ({ lighting, switchIsNightVision, switchIsDuskTillDown, switchIsFlashing }) => {    
     const {isNightVision, isDuskTillDown, isFlashing } = lighting;
     return (
         <SwitchesWrapper>

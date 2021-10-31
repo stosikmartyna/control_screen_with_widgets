@@ -1,6 +1,8 @@
+export type LampIntensivity = 0 | 1 | 3 | 10 | 30 | 100;
+
 export interface LightSettings {
     name: string;
-    lampIntensivity: number;
+    lampIntensivity: LampIntensivity;
     isNightVision: boolean;
     isDuskTillDown: boolean;
     isFlashing: boolean;
