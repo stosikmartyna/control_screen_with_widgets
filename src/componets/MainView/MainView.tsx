@@ -1,26 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { LightWidget } from '../LightWidget/LightWidget';
 import { Container } from './MainView.styles';
-import { LightSettings } from '../../utils/types';
-import { getLightSettings } from '../../api/api';
-import { mapLightSettingsDTO } from '../../utils/mappers';
+import { useLightSettings } from '../../hooks/useLightSettings';
 
 export const MainView: React.FC = () => {
-    const [lightSettings, setLightSettings] = useState<LightSettings[]>();
-
-    const getData = async() => {
-        try {
-            const response = await getLightSettings();
-            const mappedResponse = mapLightSettingsDTO(response);
-            setLightSettings(mappedResponse);
-        } catch (error) {
-            console.warn(error);
-        }
-    };
+    const {lightSettings, getData} = useLightSettings();
 
     useEffect(() => {
         getData();
-    }, []);
+    }, [getData]);
 
     return (
         <Container>
