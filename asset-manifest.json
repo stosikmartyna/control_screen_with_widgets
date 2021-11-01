@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/control_screen_with_widgets/static/css/main.ffe3ea4c.chunk.css",
+    "main.js": "/control_screen_with_widgets/static/js/main.ede215c4.chunk.js",
+    "main.js.map": "/control_screen_with_widgets/static/js/main.ede215c4.chunk.js.map",
+    "runtime-main.js": "/control_screen_with_widgets/static/js/runtime-main.f839f9fa.js",
+    "runtime-main.js.map": "/control_screen_with_widgets/static/js/runtime-main.f839f9fa.js.map",
+    "static/js/2.92df0af4.chunk.js": "/control_screen_with_widgets/static/js/2.92df0af4.chunk.js",
+    "static/js/2.92df0af4.chunk.js.map": "/control_screen_with_widgets/static/js/2.92df0af4.chunk.js.map",
+    "index.html": "/control_screen_with_widgets/index.html",
+    "static/css/main.ffe3ea4c.chunk.css.map": "/control_screen_with_widgets/static/css/main.ffe3ea4c.chunk.css.map",
+    "static/js/2.92df0af4.chunk.js.LICENSE.txt": "/control_screen_with_widgets/static/js/2.92df0af4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f839f9fa.js",
+    "static/js/2.92df0af4.chunk.js",
+    "static/css/main.ffe3ea4c.chunk.css",
+    "static/js/main.ede215c4.chunk.js"
+  ]
+}
