@@ -2,17 +2,14 @@ import styled from 'styled-components';
 import { Button } from '@mui/material';
 import { colors } from '../../utils/constants/colors';
 
-export const ButtonsWrapper = styled.div`
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 5px;
-    margin: 10px 0;
+export const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20%;
 `;
 
 export const AddButton = styled(Button)`
-    align-items: center;
-    display: flex;
-    justify-content: center;
     height: 50px;
 
     && {
@@ -23,13 +20,11 @@ export const AddButton = styled(Button)`
 export const RemoveButton = styled(AddButton)`
     && {
         background-color: ${colors.lightBlue};
-        border: 1px solid ${colors.lightBlue};
         color: ${colors.white};
-        font-size: 3rem;
+        padding-bottom: 10px;
 
         &:hover {
             background-color: ${colors.lightBlueHover};
-            border: 1px solid ${colors.lightBlueHover};
         }
     }
 `;

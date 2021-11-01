@@ -3,7 +3,7 @@ import { LampIntensivityBars } from '../LampIntensivityBars/LampIntensivityBars'
 import { LampIntensivityControls } from '../LampIntensivityControls/LampIntensivityControls';
 import { BatteryTime } from '../BatteryTime/BatteryTime';
 import { LightModeSwitches } from '../LightModeSwitches/LightModeSwitches';
-import { Container, ControlPanelWrapper, NavigationWrapper } from './LightWidget.styles';
+import { Wrapper, ControlPanelWrapper, LightModeWrapper, Text, WidgetHeaderWrapper } from './LightWidget.styles';
 import { LampIntensivity, LightSettings } from '../../utils/types';
 import { useLightSettings } from '../../hooks/useLightSettings';
 
@@ -51,24 +51,24 @@ export const LightWidget: React.FC<LightWidgetProps> = ({ initialValues }) => {
     }, [initialValues.name, values, updateLightSettings]);
 
     return (
-        <Container data-testid={'widget'}>
-            <LampIntensivityBars 
-                lampIntensivity={values.lampIntensivity} 
-                modeName={lightName}
-            />
+        <Wrapper>
+            <WidgetHeaderWrapper>
+                <Text>{lightName}</Text>
+                <LampIntensivityBars lampIntensivity={values.lampIntensivity} />
+            </WidgetHeaderWrapper>
             <ControlPanelWrapper>
                 <LampIntensivityControls 
                     changeIntensivity={handleLampIntensivity}
                     lampIntensivity={values.lampIntensivity}
                 />
-                <NavigationWrapper>
+                <LightModeWrapper>
                     <BatteryTime value={values.batteryTimeLeft} />
                     <LightModeSwitches
                         lighting={values}
                         switchLightMode={switchLightMode}
                     />
-                </NavigationWrapper>
+                </LightModeWrapper>
             </ControlPanelWrapper>
-        </Container>
+        </Wrapper>
     );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    ButtonsWrapper,
+    Wrapper,
     AddButton,
     BoxWithValue,
     RemoveButton
@@ -21,11 +21,10 @@ export const LampIntensivityControls: React.FC<LampIntensivityControlsProps> = (
     }
 
     return (
-        <ButtonsWrapper>
+        <Wrapper>
             <AddButton variant={'contained'} onClick={increase}>+</AddButton>
             <BoxWithValue>{lampIntensivity}%</BoxWithValue>
-            {/* minus jest krzywo w buttonie */}
             <RemoveButton onClick={decrease}>-</RemoveButton>
-        </ButtonsWrapper>
+        </Wrapper>
     );
 };

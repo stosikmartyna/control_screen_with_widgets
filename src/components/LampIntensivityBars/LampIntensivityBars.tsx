@@ -1,18 +1,11 @@
 import React from 'react';
-import {
-    BarAndTextWrapper,
-    Text,
-    BarsWrapper,
-    UncompleteBar,
-    CompleteBar
-} from './LampIntensivityBars.styles';
+import { Wrapper, UncompleteBar, CompleteBar } from './LampIntensivityBars.styles';
 
 interface LampIntensivityBarsProps {
     lampIntensivity: number;
-    modeName: string;
 }
 
-export const LampIntensivityBars: React.FC<LampIntensivityBarsProps> = ({ lampIntensivity, modeName }) => {
+export const LampIntensivityBars: React.FC<LampIntensivityBarsProps> = ({ lampIntensivity }) => {
     const renderBars = () => {
         if (lampIntensivity === 0) {
             return (
@@ -78,11 +71,8 @@ export const LampIntensivityBars: React.FC<LampIntensivityBarsProps> = ({ lampIn
     };
 
     return (
-        <BarAndTextWrapper>
-            <Text>{modeName}</Text>
-            <BarsWrapper>
-                {renderBars()}
-            </BarsWrapper>
-        </BarAndTextWrapper>
+        <Wrapper>
+            {renderBars()}
+        </Wrapper>
     );
 };

@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect';
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '@testing-library/react';
-import { LightWidget } from '../../componets/LightWidget/LightWidget';
+import { LightWidget } from '../../components/LightWidget/LightWidget';
 import { useLightSettings } from '../../hooks/useLightSettings';
 import { LightSettings } from '../../utils/types';
 import { mocked } from 'ts-jest/utils';

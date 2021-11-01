@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-    BatteryTimeWrapper,
-    BaterryIcon,
-    BatteryText
-} from './BatteryTime.styles';
+import { Wrapper, Icon, Text } from './BatteryTime.styles';
 
 interface BatteryTimeProps {
     value: number
@@ -14,11 +10,11 @@ export const BatteryTime: React.FC<BatteryTimeProps> = ({ value }) => {
     const minutes = value % 60;
 
     return (
-        <BatteryTimeWrapper>
-            <BaterryIcon src={'./images/battery.png'}/>
-            <BatteryText>
+        <Wrapper>
+            <Icon src={'./images/battery.png'}/>
+            <Text>
                 Time left: {hours}h {minutes}min
-            </BatteryText>
-        </BatteryTimeWrapper>
+            </Text>
+        </Wrapper>
     );
 };
