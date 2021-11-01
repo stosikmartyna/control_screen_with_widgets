@@ -8,5 +8,5 @@ export const getLightSettings = async () => {
 }
 
 export const putLightSettings = async (name: string, values: LightSettings) => {
-    await axios.put(`/light/${name}`, { values });
+    await axios.put(`/light/${name}`, values);
 }
